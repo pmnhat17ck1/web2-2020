@@ -1,0 +1,30 @@
+<%- include('header',{title : 'TODO'}); -%>
+
+    <style>
+        li.checked {
+            text-decoration: line-through;
+        }
+    </style>
+
+    <form method="POST">
+        <h2>Danh sách việc chưa hoàn thành
+        </h2>
+        <div id="myDIV" class="form-group">
+            <input type="text" id="name" name="name" placeholder="input todo">
+            <button type="submit" class="btn btn-primary" id="add" name="add" value="add">ADD</button>
+        </div>
+    </form>
+    <form method="POST">
+        <ul id="myUL" style="list-style-type:none;">
+            <% for (var i=0;i<arrtodo.length;i++){ %>
+                <li class="<%= arrtodo[i].done ? 'checked' :'' %>">
+                    <input type="checkbox" id="checkbox" name="checkbox" value="<%= arrtodo[i].id %>">
+                    <%= arrtodo[i].name %>
+                </li>
+                <% } %>
+        </ul>
+        <button type="submit" class="btn btn-primary" id="done" name="done" value="done">DONE</button>
+        <button type="submit" class="btn btn-primary" id="delete" name="delete" value="delete" style="background: red;">DELETE</button>
+    </form>
+
+    <%- include('footer'); -%>

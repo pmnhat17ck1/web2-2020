@@ -1,0 +1,50 @@
+<%- include('header',{ title: 'Chuyển tiền'}); -%>
+    <div class="row" id="row_input">
+
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4">
+
+            <div class="card" id="card_login">
+                <div class="card-body">
+                    <center>
+                        <h2 style="color:#72B441">Chuyển tiền</h2>
+                    </center>
+                    <hr />
+                    <div class="d-flex flex-column text-center">
+                        <form method="POST">
+                            
+                            <div class="form-group" style="margin-bottom: 20px; ;-webkit-box-shadow: 0 8px 6px -6px #93C66E;-moz-box-shadow: 0 8px 6px -6px #93C66E;box-shadow: 0 8px 6px -6px #93C66E; text-align: left;">
+                                <input type="text" class="form-control" id="numberacount_send" name="numberacount_send" value="<%=listacountnumber%>">
+                            </div>
+
+                            <div class="form-group" style="margin-bottom: 20px; ;-webkit-box-shadow: 0 8px 6px -6px #93C66E;-moz-box-shadow: 0 8px 6px -6px #93C66E;box-shadow: 0 8px 6px -6px #93C66E; text-align: left;">
+                                <input type="text" class="form-control" id="numberacount_receive" name="numberacount_receive" placeholder="số tài khoản thụ hưởng">
+                            </div>
+
+                            <div class="form-group" style="margin-bottom: 20px; ;-webkit-box-shadow: 0 8px 6px -6px #93C66E;-moz-box-shadow: 0 8px 6px -6px #93C66E;box-shadow: 0 8px 6px -6px #93C66E; text-align: left;">
+                                <input type="text" class="form-control" id="destinationbank" name="destinationbank" placeholder="Tên ngân hàng nhận tiền thụ hưởng">
+                            </div>
+
+                            <div class="form-group" style="margin-bottom: 20px; ;-webkit-box-shadow: 0 8px 6px -6px #93C66E;-moz-box-shadow: 0 8px 6px -6px #93C66E;box-shadow: 0 8px 6px -6px #93C66E; text-align: left;">
+                                <input type="number" class="form-control" id="amount" name="amount" placeholder="số tiền cần gửi">
+                            </div>
+
+                            <div class="form-group" style="margin-bottom: 20px; ;-webkit-box-shadow: 0 8px 6px -6px #93C66E;-moz-box-shadow: 0 8px 6px -6px #93C66E;box-shadow: 0 8px 6px -6px #93C66E; text-align: left;">
+                                <input type="text" class="form-control" id="note" name="note" placeholder="Chú thích">
+                            </div>
+                            
+                            <div class="btn_boxshadow btn-round">
+                            <input type="submit" class="btn btn-block btn-round"  value="Send">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+        </div>
+    </div>
+    </div>
+
+    <%- include('footer'); -%>

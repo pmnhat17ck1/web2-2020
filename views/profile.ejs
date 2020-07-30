@@ -1,0 +1,20 @@
+<%- include('header',{title : 'Trang chủ'}) -%>
+    <ul>
+        <li><strong>Id: </strong>
+            <%= currentUser.id%>
+        </li>
+        <li><strong>Email: </strong>
+            <%= currentUser.email%>
+        </li>
+        <li><strong>Họ và tên: </strong>
+            <%= currentUser.displayname%>
+        </li>
+    </ul>
+    <form method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="avatar">Đăng hình đại diện</label>
+            <input type="file" class="form-control-file" id="avatar" name="avatar">
+        </div>
+        <button type="submit" class="btn btn-primary">đăng hình đại diện</button>
+    </form>
+    <%- include('footer') -%>

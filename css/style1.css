@@ -1,0 +1,56 @@
+.bg_img{
+    margin-top: 1rem;
+    width: 100%;
+}
+.nd_cacthe{
+    color:white;
+    padding-left:25px;
+    padding-top:30px;
+    padding-bottom:30px;
+    font-family: 'Arial', sans-serif;
+
+}
+.tt_cacthe{
+    background-color: #f5f5f5;
+    width:100%;
+    height: auto;
+}
+.responsive {
+    width: 100%;
+    height: auto;
+  }
+.name_the{
+    color: #603913;
+}
+.name_the >h3{
+    font-size: 20px;
+}
+.img_the{
+    padding:30px;
+    height: auto;
+    width: auto;
+    background-color: #f5f5f5;
+}
+
+.lead_the >p{
+    color: #1d1b1b; 
+    font-size: 14px;  
+}
+.lead_the ul>li{
+    color: #1d1b1b;   
+    font-size: 14px;  
+}
+.lead_the >ul{
+padding-left: 25px;
+}
+
+
+
+.name__the1 h2{
+    margin-left: 15px;
+    color: red;
+}
+
+.name__the1 >hr{
+    max-width: auto;
+}
