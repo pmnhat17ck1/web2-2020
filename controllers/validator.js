@@ -2,22 +2,33 @@ const { body } = require('express-validator');
 
 const validateRegisterUser = function() {
     return [
-        body('username', 'username does not Empty').not().isEmpty(),
-        body('username', 'username must be Alphanumeric').isAlphanumeric(),
-        body('username', 'username more than 6 degits').isLength({min : 6}),
-        body('email', 'Invalid does not Empty').not().isEmpty().normalizeEmail(),
-        body('email', 'Invalid email').isEmail(),
-        body('displayname').trim().notEmpty(),
-        body('cmnd').trim().notEmpty(),
-        body('cmnd', 'cmnd more than 9 degits').isLength( 9 ),
-        body('daterange', 'Invalid birthday').isISO8601('yyyy-mm-dd'),
-        body('password', 'password more than 6 degits').isLength({ min: 6 })
+        body('username', 'username không được rỗng').not().isEmpty(),
+        body('username', 'username phải là chữ và số').isAlphanumeric(),
+        body('username', 'username hơn 6 chữ số').isLength({ min: 6 }),
+        body('email', 'email không hợp lệ hoặc rỗng').not().isEmpty().normalizeEmail(),
+        body('email', 'email phải hợp lệ').isEmail(),
+        body('password', 'password ít nhất 6  chữ số').isLength({ min: 6 }),
+        body('displayname', ' không được rỗng').trim().notEmpty(),
+        body('cmnd', 'không được rỗng').trim().notEmpty(),
+        body('cmnd', 'cmnd phải bằng 9 chữ số').isLength(9),
+        body('daterange', 'daterange phải là dạng ngày tháng năm').isISO8601('yyyy-mm-dd'),
+
     ];
 }
 
 
+const validateVerifyUser = function() {
+    return [
+        body('papers', 'papers không được rỗng').trim().notEmpty(),
+        body('papers', 'cmnd phải bằng 9 chữ số').isLength(9),
+    ];
+}
+
+
+
 const validate = {
     validateRegisterUser: validateRegisterUser,
+    validateVerifyUser: validateVerifyUser,
 };
 
 module.exports = { validate };
