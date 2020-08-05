@@ -37,27 +37,38 @@
                         <h2 style="color:#28A745">Đăng nhập</h2>
                     </center>
                     <hr />
-                    <div class="d-flex flex-column text-center">
-                        <form method="POST">
-                            <div class="form-label-group">
-                                <input type="text" id="username2" class="form-control" name="username"placeholder="Tên đăng nhập" required autofocus>
-                                <label for="username2">Tên đăng nhập</label>
-                            </div>
-                            <div class="form-label-group">
-                                <input type="password" class="form-control" id="password2" name="password" placeholder=" Mật khẩu"required >
-                                <label for="password2">Mật khẩu</label>
-                            </div>
-                            <div class="btn_boxshadow btn-round">
-                            <input type="submit" class="btn btn-block btn-round" value="Đăng nhập">
-                            </div>
-                        </form>  
-                        <hr style="background-color: #FFFFFF;">
-                        <div class="d-flex flex-column text-center">
-                            <p><a href="/forget-password">Quên mật khẩu?</a></p>
-                            <div class="signup-section" style="margin-top: -20px;">Bạn chưa có tài khoản? <a href="/register" class="text-info">Đăng ký</a></div>
-                        </div>
+                    <% if (errors!=null) { %>
 
-                    </div>
+                        <div class="alert alert-danger fade show" role="alert" id="snackbar">
+                            <%=errors%>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true" style="position:absolute; right: 0;">&times;</span>
+                            </button>
+                        </div>
+                        <%} else { %>
+
+                            <% } %>
+                                <div class="d-flex flex-column text-center">
+                                    <form method="POST">
+                                        <div class="form-label-group">
+                                            <input type="text" id="username2" class="form-control" name="username" placeholder="Tên đăng nhập" required autofocus>
+                                            <label for="username2">Tên đăng nhập</label>
+                                        </div>
+                                        <div class="form-label-group">
+                                            <input type="password" class="form-control" id="password2" name="password" placeholder=" Mật khẩu" required>
+                                            <label for="password2">Mật khẩu</label>
+                                        </div>
+                                        <div class="btn_boxshadow btn-round">
+                                            <input type="submit" class="btn btn-block btn-round" value="Đăng nhập">
+                                        </div>
+                                    </form>
+                                    <hr style="background-color: #FFFFFF;">
+                                    <div class="d-flex flex-column text-center">
+                                        <p><a href="/forget-password">Quên mật khẩu?</a></p>
+                                        <div class="signup-section" style="margin-top: -20px;">Bạn chưa có tài khoản? <a href="/register" class="text-info">Đăng ký</a></div>
+                                    </div>
+
+                                </div>
                 </div>
             </div>
         </div>

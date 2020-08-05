@@ -1,0 +1,59 @@
+<%- include('header-logged',{ title: 'lịch sử giao dịch'}) -%>
+
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3" style="background-color: #E2F0D8;box-shadow: 0px 0px 4px #86BF5C;">
+            <h5 class="m-0" style="color: #28A745">Lịch sử giao dịch</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table style="box-shadow: 0px 2px 8px #86BF5C;" class="table-striped table table-bordered " id="dataTable" width="100%" cellspacing="0">
+                    <thead class="table-active" style="background-color: #A1CC7F; color:white">
+                        <tr>
+                            <th>Mã giao dịch</th>
+                            <th>Nội dung</th>
+                            <th>STK giao dịch</th>
+                            <th>Số tiền</th>
+                            <th>Thời gian</th>
+                            <th>Phí giao dịch</th>
+                        </tr>
+                    </thead>
+                    <% if (history.length   > 0) { history.forEach((item) => {%>
+                        <tr>
+                            <td>
+                                <%=item.id%>
+                            </td>
+                            <td>
+                                <%=item.note%>
+                            </td>
+                            <td>
+                                <%=item.acountnumber_receive%>
+                            </td>
+                            <td>
+                                <%=item.amount%>
+                            </td>
+                            <td>
+                                <%=new Date(item.billdate).toLocaleDateString()%>
+                            </td>
+                            <td>
+                                <%=item.fees%>
+                            </td>
+                        </tr>
+                        <%});%>
+                            <%} else { %>
+                                <tr>
+                                    <th colspan="6">
+                                        Quý khách không có lịch sử giao dịch
+                                    </th>
+                                </tr>
+                                <% } %>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <%- include('footer-logged'); -%>

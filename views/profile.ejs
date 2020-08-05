@@ -1,20 +1,191 @@
-<%- include('header',{title : 'Trang chủ'}) -%>
-    <ul>
-        <li><strong>Id: </strong>
-            <%= currentUser.id%>
-        </li>
-        <li><strong>Email: </strong>
-            <%= currentUser.email%>
-        </li>
-        <li><strong>Họ và tên: </strong>
-            <%= currentUser.displayname%>
-        </li>
-    </ul>
-    <form method="POST" enctype="multipart/form-data">
-        <div class="form-group">
-            <label for="avatar">Đăng hình đại diện</label>
-            <input type="file" class="form-control-file" id="avatar" name="avatar">
+<%- include('header-logged',{ title: 'Thông tin cá nhân'}) -%>
+    <div id="accordion">
+        <div class="card" style="margin-bottom: 20px;">
+            <div class="card-header" id="headingOne" style="background-color: #A1CC7F;height: 60px; ">
+                <center data-toggle="collapse" data-target="#collapseOne" class="font-weight-bold">
+                    <a style=" color:white;height: auto;" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    THÔNG TIN CÁ NHÂN
+            </a>
+                </center>
+
+            </div>
+
+            <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <ul>
+                                
+                                <li><strong>Email: </strong>
+                                    <%= currentUser.email%>
+                                </li>
+                                <li><strong>Họ và tên: </strong>
+                                    <%= currentUser.displayname%>
+                                </li>
+                                <li><strong>Ngày sinh: </strong>
+                                    <%= new Date(currentUser.daterange).toLocaleDateString() %>
+                                </li>
+                                <li><strong>Điện thoại: </strong>
+
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter1" style="margin-left: 20px;">
+                               Thay đổi thông tin
+                              </button>
+                              
+                              <!-- Modal -->
+                              <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header" >
+                                      <h5 class="modal-title" id="exampleModalCenterTitle">Thay đổi thông tin cá nhân</h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-label-group">
+                                            <input type="text" id="hovaten1" class="form-control" name="" placeholder="Họ và tên" required autofocus>
+                                            <label for="hovaten1">Họ và tên</label>
+                                        </div>
+                                        <div class="form-label-group">
+                                            <input type="password" class="form-control" id="ngaysinh1" name="" placeholder="Ngày sinh" required>
+                                            <label for="ngaysinh1">Ngày sinh</label>
+                                        </div>
+                                        <div class="form-label-group">
+                                            <input type="password" class="form-control" id="sdt1" name="" placeholder="Số điện thoại" required>
+                                            <label for="sdt1">Số Điện thoại</label>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                      <button type="submit" class="btn btn-success">Lưu</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <% if (errors!=null) { %>
+
+                                <div class="alert alert-danger fade show" role="alert" id="snackbar">
+                                    <%=errors%>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                                </div>
+
+                                <%} else { %>
+
+                                    <% } %>
+                                        <form method="POST">
+                                            <label for="password-change">Thay đổi mật khẩu</label>
+                                            <input type="password" class="form-control " id="password-current" name="password1" placeholder="Nhập mật khẩu hiện tại" style="margin-bottom: 20px;">
+
+                                            <input type="password" class="form-control " id="password-change" name="password2" placeholder="Nhập mật khẩu thay thế" style="margin-bottom: 25px;">
+
+                                            <button type="submit" class="btn btn-success">Thay đổi</button>
+                                        </form>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary">đăng hình đại diện</button>
-    </form>
-    <%- include('footer') -%>
+    </div>
+
+    <div class="alert font-weight-bold" style="background-color: #A1CC7F; color:white">
+        <center>THÔNG TIN TÀI KHOẢN</center>
+    </div>
+
+    <div class="table-responsive">
+        <table style="box-shadow: 0px 2px 8px #86BF5C;" class="table-striped table  " width="100%" cellspacing="0">
+
+            <thead class="table-active" style="background-color: #A1CC7F; color:white">
+
+                <tr>
+                    <th>Ngân hàng</th>
+                    <th>Số tài khoản</th>
+                    <th>Số dư</th>
+                    <th>Tiền tệ</th>
+                    <th>Trạng thái</th>
+                    <th>Ngày mở</th>
+                    <th>Ngày Đóng</th>
+                    <th>Lãi xuất/năm</th>
+                    <th>Kỳ hạn</th>
+                    <th>Loại tài khoản</th>
+                </tr>
+
+            </thead>
+            <tbody>
+
+                <% if (acount.length > 0) { acount.forEach((item) => {%>
+                    <tr>
+                        <th>
+                            <%=item.bankName %>
+                        </th>
+                        <th>
+                            <%=item.AcountNumber %>
+                        </th>
+                        <th>
+                            <%=item.balance %>
+                        </th>
+                        <th>
+                            <%=item.currency %>
+                        </th>
+                        <th>
+                            <%=item.status %>
+                        </th>
+                        <th>
+                            <%=item.open %>
+                        </th>
+                        <th>
+                            <%=item.close %>
+                        </th>
+                        <th>
+                            <%=item.interestrate %>
+                        </th>
+                        <th>
+                            <%=item.period_percent %>
+                        </th>
+                        <th>
+                            <%=item.acounttype_name %>
+                        </th>
+                    </tr>
+
+                    <%});%>
+                        <%} else { %>
+                            <tr>
+                                <th colspan="10">
+                                    Quý khách chưa có tài khoản ngân hàng
+                                </th>
+                            </tr>
+                            <% } %>
+            </tbody>
+        </table>
+    </div>
+    <!-- <ul>
+    <li><strong>Id: </strong>
+        <%= currentUser.id%>
+    </li>
+    <li><strong>Email: </strong>
+        <%= currentUser.email%>
+    </li>
+    <li><strong>Họ và tên: </strong>
+        <%= currentUser.displayname%>
+    </li>
+</ul> -->
+    <!-- <form method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="avatar">Đăng hình đại diện</label>
+        <input type="file" class="form-control-file" id="avatar" name="avatar">
+    </div>
+    <button type="submit" class="btn btn-primary">đăng hình đại diện</button>
+</form> -->
+
+    <%- include('footer-logged'); -%>

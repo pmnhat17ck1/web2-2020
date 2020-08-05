@@ -1,0 +1,32 @@
+</div>
+<div class="overlay"></div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function () {
+    $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+        $(this).toggleClass('active');
+        $('.overlay').addClass('active');
+        $('.collapse.in').toggleClass('in');
+    });
+   $(document).ready(function() {
+
+
+        var x = document.getElementById("snackbar");
+        setTimeout(function() {
+            x.style.display = 'none';
+        }, 3500);
+    });
+
+    $('.overlay').on('click', function () {
+        $('#sidebar').removeClass('active');
+        $('.overlay').removeClass('active');
+        $('#sidebarCollapse').removeClass('active');
+    });
+
+});
+</script>
+</body>
+
+</html>
