@@ -16,5 +16,5 @@ module.exports.postactivate = asyncHandler(async function(req, res) {
     }
     req.session.userId = req.session.activateId;
     delete req.session.activateId;
-    res.redirect('/');
+    res.redirect('/home/accountmanagement/profile');
 });
