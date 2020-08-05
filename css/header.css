@@ -4,11 +4,11 @@
     position: relative;
     border-radius: 10px;
 }
-#nav_top .col-sm-3 a{
-    text-align: center;
 
- 
+#nav_top .col-sm-3 a {
+    text-align: center;
 }
+
 .dropdown-menu {
     position: relative;
 }
@@ -19,40 +19,37 @@
 }
 
 .navbar {
-  
     box-shadow: 0px 2px 8px #86BF5C;
     border-radius: 7px;
     background: linear-gradient(15deg, #FFFFFF 0%, #D5E9C6 100%);
 }
+
 .custom-toggler.navbar-toggler {
     border-color: rgb(13, 148, 9);
-    
-  } 
+}
 
-#nav_link1 { 
+#nav_link1 {
     color: rgba(0, 0, 0, .5);
     transition: 1s;
 }
-#nav_link1 a{ 
+
+#nav_link1 a {
     color: rgba(0, 0, 0, .5);
 }
-#nav_link1:hover a{ 
+
+#nav_link1:hover a {
     color: white;
     transition: 1s;
 }
-#nav_link1:hover{
-   
-    background-color: #86BF5C;
-    
-  
-    
 
+#nav_link1:hover {
+    background-color: #86BF5C;
     box-shadow: inset 0 0 25px rgba(255, 255, 255, .5), 0 0 25px rgba(255, 255, 255, .2);
     outline-color: rgba(47, 209, 155, 0);
     outline-offset: 15px;
-    text-shadow: 1px 1px 2px #427388; 
-   
+    text-shadow: 1px 1px 2px #427388;
 }
+
 #form_search {
     position: relative;
     top: 50%;
@@ -116,49 +113,44 @@
     ;
     color: white;
 }
-#dropdown-menu{
+
+#dropdown-menu {
     text-align: center;
     padding-left: 100px;
     padding-right: 100px;
     box-shadow: 0px 2px 8px #86BF5C;
     opacity: 0.95;
-    background: linear-gradient(1deg, #FFFFFF 0%, #D5E9C6 100% );
- }
+    background: linear-gradient(1deg, #FFFFFF 0%, #D5E9C6 100%);
+}
 
-
-
- #dropdown-menu .container .row .col-md-3 a{
+#dropdown-menu .container .row .col-md-3 a {
     font-size: 16px;
     transition: 1s;
     color: rgba(0, 0, 0, .5);
-    
-  }
-  #dropdown-menu .container .row .col-md-3 a img{
-
-    transition: 1s;
-  
 }
- #dropdown-menu .container .row .col-md-3 a img:hover {
-     -webkit-box-shadow: 0 8px 5px -4px #93C66E;
-      -moz-box-shadow: 0 8px 5px -4px #93C66E;
-           box-shadow: 0 8px 5px -4px #93C66E;
-       
-   
- }
 
- #dropdown-menu .container .row .col-md-3 a:hover {
+#dropdown-menu .container .row .col-md-3 a img {
+    transition: 1s;
+}
 
+#dropdown-menu .container .row .col-md-3 a img:hover {
+    -webkit-box-shadow: 0 8px 5px -4px #93C66E;
+    -moz-box-shadow: 0 8px 5px -4px #93C66E;
+    box-shadow: 0 8px 5px -4px #93C66E;
+}
+
+#dropdown-menu .container .row .col-md-3 a:hover {
     outline-offset: 15px;
-    text-shadow: 1px 1px 1px #93C66E; 
-    text-decoration:none;
-    
-     
- }
- #dropdown-menu .container .row .col-md-3 a img{
+    text-shadow: 1px 1px 1px #93C66E;
+    text-decoration: none;
+}
+
+#dropdown-menu .container .row .col-md-3 a img {
     width: 45px;
     height: 45px;
- }
- .animate {
+}
+
+.animate {
     animation-duration: 0.3s;
     -webkit-animation-duration: 0.3s;
     animation-fill-mode: both;
@@ -166,3 +158,40 @@
   }
 
 
+@keyframes slideIn {
+  0% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+  100% {
+    transform:translateY(0rem);
+    opacity: 1;
+  }
+  0% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes slideIn {
+  0% {
+    -webkit-transform: transform;
+    -webkit-opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    -webkit-opacity: 1;
+  }
+  0% {
+    -webkit-transform: translateY(1rem);
+    -webkit-opacity: 0;
+  }
+}
+
+.slideIn {
+  -webkit-animation-name: slideIn;
+  animation-name: slideIn;
+}
+#snackbar{
+    position: relative;
+}
