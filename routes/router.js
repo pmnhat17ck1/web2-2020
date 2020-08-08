@@ -51,7 +51,6 @@ router.post('/home/accountmanagement/transaction-history', posttransactionhistor
 router.get('/home/tranfer/in-the-bank', gettranferinbank);
 router.post('/home/tranfer/in-the-bank', posttranferinbank);
 
-
 router.get('/register', getregister);
 router.post('/register', validate.validateRegisterUser(), postregister);
 router.get('/verify', getverify);
@@ -77,6 +76,5 @@ router.post('/vayvon', postvayvon);
 
 router.get('/thanhtoan-chuyentien', getttct);
 router.post('/thanhtoan-chuyentien', postttct);
-
 
 module.exports = { router };
