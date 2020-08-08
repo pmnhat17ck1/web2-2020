@@ -9,7 +9,6 @@ const { getlogout } = require('../controllers/logout');
 const { getregister, postregister } = require('../controllers/register');
 const { getverify, postverify } = require('../controllers/verify');
 
-
 const { gettranfer, posttranfer } = require('../controllers/tranfer');
 const { gettranferinbank, posttranferinbank } = require('../controllers/tranfer-in-bank');
 
@@ -27,8 +26,6 @@ const { getttct, postttct } = require('../controllers/thanhtoan-chuyentien');
 
 const router = express.Router();
 router.get('/', getIndex);
-
-
 router.get('/login', getlogin);
 router.post('/login', postlogin);
 
