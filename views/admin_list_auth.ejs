@@ -1,0 +1,104 @@
+<%- include('admin_header',{ title: 'index'}) -%>
+
+
+
+    <!-- Content Row -->
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Danh sách xác thực</h1>
+    </div>
+
+
+    <div class="row">
+        <div class="table-responsive">
+            <table style="box-shadow: 0px 2px 8px #28A745;" class="table-striped table table-bordered " id="dataTable" width="100%" cellspacing="0">
+                <thead class="table-active" style="background-color: #28A745; color:white">
+                    <tr>
+
+                        <th>Số tài khoản</th>
+                        <th>Ngân hàng</th>
+                        <th>Trạng thái</th>
+                        <th>Số giấy tờ</th>
+                        <th>Hình giấy tờ</th>
+                        <th>Ngày mở</th>
+                        <th>Xác nhận</th>
+                    </tr>
+                    <tbody>
+                        <% if (acount.length   > 0) { acount.forEach((item) => {%>
+                            <tr>
+                                <td>
+                                    <%=item.AcountNumber%>
+                                </td>
+                                <td>
+                                    <%=item.bank%>
+                                </td>
+                                <td>
+                                    <%=item.status%>
+                                </td>
+                                <td>
+                                    <%=item.namepaper%>
+                                </td>
+                                <td>
+                                    <img src="/uploads/<%= item.verifypaper1 %>" width="50" height="50">
+                                </td>
+                                <td>
+                                    <%=item.open%>
+                                </td>
+                                <td>
+                                    <form method="POST">
+                                        <input type="submit" name="accept" class="btn btn-block btn-round" value="<%=item.AcountNumber%>">
+                                    </form>
+
+                                </td>
+                                <!-- <script>
+                                    console.log('Client-side code running');
+
+                                    const button = document.getElementById('myButton');
+                                    button.addEventListener('click', function(e) {
+                                        console.log('button was clicked');
+                                    });
+                                </script> -->
+                            </tr>
+                            <%});%>
+                                <%} else { %>
+                                    <tr>
+                                        <th colspan="7">
+                                            Yêu cầu xác thực trống!
+                                        </th>
+                                    </tr>
+                                    <% } %>
+
+                    </tbody>
+                </thead>
+
+            </table>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Thay đổi tình trạng</h1>
+    </div>
+
+
+    <div class="row">
+        <div class="table-responsive">
+            <table style="box-shadow: 0px 2px 8px #28A745;" class="table-striped table table-bordered " id="dataTable1" width="100%" cellspacing="0">
+                <thead class="table-active" style="background-color: #28A745; color:white">
+                    <tr>
+
+                        <th>Số tài khoản</th>
+                        <th>Trạng thái</th>
+                        <th>Ngày mở</th>
+                        <th>Xác nhận</th>
+                    </tr>
+                </thead>
+
+            </table>
+        </div>
+    </div>
+
+
+    <%- include('admin_footer') -%>
