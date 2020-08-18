@@ -3,7 +3,9 @@ const { request } = require('../controllers/request');
 module.exports = asyncHandler(async function auth(req, res, next) {
 
     const userId = req.session.userId;
+
     res.locals.currentUser = null;
+
     if (!userId) {
         return next();
     }
@@ -12,9 +14,19 @@ module.exports = asyncHandler(async function auth(req, res, next) {
     if (user == null) {
         return next();
     }
-    // console.log(user.user.id);
     req.currentUser = user.user;
     res.locals.currentUser = user.user;
-    // console.log(`user: ${req.currentUser.displayname}`);
+
+    const verify = await verifypaper(req, res);
+
+    res.locals.verify = verify;
     next();
+});
+
+verifypaper = asyncHandler(async function(req, res) {
+    if (!req.currentUser) {
+        return null;
+    }
+    const verify = await request('POST', '/verifypaper', { id: req.currentUser.id });
+    return verify.verify;
 });
