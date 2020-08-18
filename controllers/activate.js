@@ -9,6 +9,9 @@ module.exports.getactivate = function(req, res, next) {
 
 module.exports.postactivate = asyncHandler(async function(req, res) {
     console.log(req.session.activateId);
+    if (!req.body.codetoken || req.body.codetoken == null) {
+        return res.render(`activate/${req.session.activateId}`);
+    }
     const check = await request('POST', '/activate', { id: req.session.activateId, codetoken: req.body.codetoken });
     const result = check.resutl;
     if (result != 'success') {
