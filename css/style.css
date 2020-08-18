@@ -23,7 +23,12 @@ a:hover{
 .form-title {
     margin: -2rem 0rem 2rem;
 }
-
+#header_verify{
+  width: 100%;
+  height: auto;
+  background-color: #72B441 ;
+  color:white;text-align: center;
+}
 .btn-round {
     border-radius: 3rem;
 }
@@ -67,6 +72,8 @@ a:hover{
     width: auto;
     height: 100%; 
     border-radius: 10px;
+
+   
 }
 #silde_register img{
 
@@ -178,11 +185,5 @@ a:hover{
   }
   #myTab li .active{
     color: black ;
-  }
-  #header_verify{
-    width: 100%;
-    height: 45px;
-    background-color: #72B441 ;
-    color:white;text-align: center;
   }
  

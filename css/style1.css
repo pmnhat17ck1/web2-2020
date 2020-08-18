@@ -44,6 +44,8 @@
 padding-left: 25px;
 }
 
+
+
 .name__the1 h2{
     margin-left: 15px;
     color: red;
@@ -52,3 +54,55 @@ padding-left: 25px;
 .name__the1 >hr{
     max-width: auto;
 }
+
+div.gallery {
+    margin-top: 10px;
+    margin-left: -7px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+  }
+  
+  div.gallery:hover {
+    border: 1px solid #777;
+  }
+  
+  div.gallery img {
+    border-radius: 10px;
+    width: 100%;
+    height: 170px;
+  }
+  
+  div.desc {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .responsive1 {
+    padding: 0 6px;
+    float: left;
+    width: 24.99999%;
+  }
+  
+  @media only screen and (max-width: 700px) {
+    .responsive1 {
+      width: 49.99999%;
+      margin: 6px 0;
+    }
+  }
+  
+  @media only screen and (max-width: 500px) {
+    .responsive1 {
+      width: 100%;
+    }
+  }
+  
+  .clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+  }

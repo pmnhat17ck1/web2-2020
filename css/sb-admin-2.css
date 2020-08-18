@@ -9885,7 +9885,7 @@ a:focus {
 
 .bg-gradient-success {
   background-color: #1cc88a;
-  background-image: linear-gradient(180deg, #1cc88a 10%, #13855c 100%);
+  background-image: linear-gradient(180deg, #28A745 50% ,#72B441 100%);
   background-size: cover;
 }
 
@@ -10801,9 +10801,11 @@ a:focus {
 }
 
 .bg-login-image {
-  background: url("https://source.unsplash.com/K4mSJ7kc0As/600x800");
+  background: url("/img/01.jpg");
   background-position: center;
   background-size: cover;
+  width: 600px;
+  height: 600px;
 }
 
 .bg-register-image {
