@@ -1,0 +1,131 @@
+<%- include('header-logged',{ title: 'Mở tài khoản tiết kiệm'}) -%>
+    <% if (errors!=null ) { %>
+
+        <div class="alert alert-<%= errors == 'Mở tài khoản thành công' ? 'success': 'danger' %> fade show" role="alert" id="snackbar">
+            <%=errors%>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+        </div>
+
+        <%} else { %>
+            <% } %>
+                <!-- DataTales Example -->
+                <form method="POST">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3" style="background-color: #a1cc7f; box-shadow: 0px 0px 4px #86bf5c;">
+                            <h6 class="m-0 font-weight-bold text-white">TÀI KHOẢN THANH TOÁN</h6>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <p> Số tài khoản thanh toán </p>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <select class="form-control" id="so_tktrichtien" name="acountnumber" style="width: 250px; margin-left: 25px;">
+                                    <% if (listAcount.length > 0) { listAcount.forEach(item => {%>
+                                        <option><%= item.acountnumber %></option>
+                                    <%});} %>
+                                </select>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-row">
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <p>Số dư</p>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <input type="text" id="so_tk" class="form-control money" disabled value="<%=  listAcount[0] ? listAcount[0].balance : null%>" required autofocus />
+                            </div>
+                        </div>
+
+
+                        <div class="card-header py-3" style="background-color: #a1cc7f; box-shadow: 0px 0px 4px #86bf5c;">
+                            <h6 class="m-0 font-weight-bold text-white">NGÂN HÀNG THỤ HƯỞNG</h6>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <p>Nhập tên ngân hàng thụ hưởng</p>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <input type="text" id="so_tk" class="form-control huy2" name="bank" placeholder="" required autofocus />
+                            </div>
+                        </div>
+
+
+                        <div class="card-header py-3" style="background-color: #a1cc7f; box-shadow: 0px 0px 4px #86bf5c;">
+                            <h6 class="m-0 font-weight-bold text-white">THÔNG TIN TÀI KHOẢN TIẾT KIỆM</h6>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <p>Khách hàng</p>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <input type="text" id="so_tk" class="form-control huy3" value="<%= currentUser.displayname%>" disabled />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <p>Số tiền gửi</p>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <input type="number" id="so_tk" class="form-control huy3" name="amount" required autofocus />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <p>Kì hạn gửi</p>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <select class="form-control" id="so_tktrichtien" name="period" style="width: 250px; margin-left: 25px;">
+                        
+                                    <% if (listPeriod.length > 0) { listPeriod.forEach(item => {%>
+                                        <option><%=item.period_id%> tháng (<%=item.period_percent%>%)</option>
+                                    <%});} %>
+                       
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="form-row">
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <p>Định kì góp tiền</p>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <select class="form-control" id="so_tktrichtien" style="width: 250px; margin-left: 25px;">
+                                    <option> Tự động gia hạn </option>
+                                    <option> Không gia hạn </option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- <div class="form-row ">
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <p>Phương thức xác thực</p>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+
+                                <select class="custom-select" name="otp_email" style="width: 250px; margin-left: 25px;">
+                                    <option value="OTP">OTP</option>
+                                    <option value="EMAIL">EMAIL</option>
+                                </select>
+
+
+
+                            </div>
+
+                        </div> -->
+                        <div class="btn2">
+                            <button type="submit" class="btn btn-success btn-sm">Đồng ý</button>
+                            <button type="button" id="btnhuy" class="btn btn-secondary btn-sm">
+                                Hủy
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <%- include('footer-logged'); -%>
