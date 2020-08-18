@@ -24,6 +24,56 @@ $(document).ready(function () {
         $('#item6').removeClass('active1');
        
     }
+   
+    if (pathname=='/home/saving/open-saving'){
+     
+        br.html("Tiền gửi");
+        br1.html("Mở tài khoản tiết kiệm");
+    
+        $('#pageSubmenu2').addClass('show');
+        $('#menu3').addClass('active');
+        $('#item5').addClass('active1');
+        $('#item6').removeClass('active1');
+        $('#pageSubmenu').removeClass('show');
+        $('#item1').removeClass('active1');
+        $('#item2').removeClass('active1');
+        $('#pageSubmenu1').removeClass('show');
+        $('#item3').removeClass('active1');
+        $('#item4').removeClass('active1');
+       
+    }
+    if (pathname=='/home/saving/send-money'){
+        br.html("Tiền gửi");
+        br1.html("Gửi tiền");
+        $('#pageSubmenu2').addClass('show');
+        $('#menu3').addClass('active');
+        $('#item6').addClass('active1');
+        $('#item5').removeClass('active1');
+        $('#pageSubmenu').removeClass('show');
+        $('#item1').removeClass('active1');
+        $('#item2').removeClass('active1');
+        $('#pageSubmenu1').removeClass('show');
+        $('#item3').removeClass('active1');
+        $('#item4').removeClass('active1');
+       
+    }
+    if (pathname=='/home/saving/list-saving'){
+     
+        br.html("Gửi tiền");
+        br1.html("Danh sách tài khoản tiết kiệm");
+    
+        $('#pageSubmenu2').addClass('show');
+        $('#menu3').addClass('active');
+        $('#item5').addClass('active1');
+        $('#item6').removeClass('active1');
+        $('#pageSubmenu').removeClass('show');
+        $('#item1').removeClass('active1');
+        $('#item2').removeClass('active1');
+        $('#pageSubmenu1').removeClass('show');
+        $('#item3').removeClass('active1');
+        $('#item4').removeClass('active1');
+       
+    }
     if (pathname=='/home/accountmanagement/profile'){
      
         br.html("Quản lý tài khoản");
