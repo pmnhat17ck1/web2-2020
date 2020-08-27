@@ -3,7 +3,7 @@ const { getIndex } = require('../controllers/cookies');
 
 const { getlogin, postlogin } = require('../controllers/login');
 const { getactivate, postactivate } = require('../controllers/activate');
-const { getlogout } = require('../controllers/logout');
+const { getlogout, getadminlogout } = require('../controllers/logout');
 // const { getprofile, postfile } = require('../controllers/profile');
 // const { getTodo, postTodo } = require('../controllers/todo');
 const { getregister, postregister } = require('../controllers/register');
@@ -23,8 +23,10 @@ const { validate } = require('../controllers/validator');
 
 const { getprofile, postprofile } = require('../controllers/profile');
 const { gettransactionhistory, posttransactionhistory } = require('../controllers/transaction-history');
+const { postsendmoney, getsendmoney } = require('../controllers/send-money');
 // index chua dang nhap
 const { getguitien, postguitien } = require('../controllers/gui-tien');
+const { getlienhe, postlienhe } = require('../controllers/lien-he');
 const { getvayvon, postvayvon } = require('../controllers/vay-von');
 const { getthe, postthe } = require('../controllers/the-horsebank');
 const { getttct, postttct } = require('../controllers/thanhtoan-chuyentien');
@@ -35,6 +37,7 @@ const { getindexadmin, postindexadmin } = require('../controllers/admin_index');
 const { getlist_auth, postlist_auth } = require('../controllers/admin_list_auth');
 const { getlist_guest, postlist_guest } = require('../controllers/admin_list_guest');
 const { getupdate_info_guest, postupdate_info_guest } = require('../controllers/admin_update_info_guest');
+const { getlist_send_auth, postlist_send_auth } = require('../controllers/admin_list_send_auth');
 const router = express.Router();
 router.get('/', getIndex);
 
@@ -44,10 +47,12 @@ router.post('/login', postlogin);
 
 router.get('/activate/:id', getactivate);
 router.post('/activate', postactivate);
+
 router.get('/logout', getlogout);
+router.get('/admin/logout', getadminlogout);
 
 const upload = require('../middleware/upload');
-router.use(upload.array('avatar', 2));
+router.use(upload.array('avatar', 10));
 
 // index khi da logins
 router.get('/home/accountmanagement/profile', getprofile);
@@ -60,7 +65,10 @@ router.get('/home/tranfer/in-the-bank', gettranferinbank);
 router.post('/home/tranfer/in-the-bank', posttranferinbank);
 
 router.get('/home/saving/open-saving', getopensaving);
-router.post('/home/saving/open-saving', postopensaving)
+router.post('/home/saving/open-saving', postopensaving);
+
+router.get('/home/saving/send-money', getsendmoney);
+router.post('/home/saving/send-money', postsendmoney);
 
 router.get('/home/saving/list-saving', getlistsaving);
 router.post('/home/saving/list-saving', postlistsaving)
@@ -68,7 +76,7 @@ router.post('/home/saving/list-saving', postlistsaving)
 router.get('/ct_otp_email/:send/:receive', get_ct_otp_email);
 router.post('/ct_otp_email', post_ct_otp_email);
 
-router.get('/gt_otp_email', get_gt_otp_email);
+router.get('/gt_otp_email/:send', get_gt_otp_email);
 router.post('/gt_otp_email', post_gt_otp_email)
 
 router.get('/register', getregister);
@@ -88,6 +96,9 @@ router.post('/forget-password', postForgetPassword);
 //index chua dang nhap route
 router.get('/gui-tien', getguitien);
 router.post('/gui-tien', postguitien);
+
+router.get('/lien-he', getlienhe);
+router.post('/lien-he', postlienhe);
 
 router.get('/the-horsebank', getthe);
 router.post('/the-horsebank', postthe);
@@ -113,6 +124,9 @@ router.post('/admin/list_auth', postlist_auth);
 router.get('/admin/list_guest', getlist_guest);
 router.post('/admin/list_guest', postlist_guest);
 
-router.get('/admin/admin_update_info', getupdate_info_guest);
+router.get('/admin/admin_update_info/:id', getupdate_info_guest);
 router.post('/admin/admin_update_info', postupdate_info_guest);
+
+router.get('/admin/send/list_auth', getlist_send_auth);
+router.post('/admin/send/list_auth', postlist_send_auth);
 module.exports = { router };
