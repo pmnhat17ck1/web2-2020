@@ -1,4 +1,7 @@
-const url = require('url');
-module.exports.getIndex = function getIndex(req, res) {
-    res.render('index');
-};
+const asyncHandler = require('express-async-handler');
+const { request } = require('./request');
+module.exports.getIndex = asyncHandler(async function(req, res) {
+    // const verify = await verifypaper(); 
+    // console.log(verify);
+    res.render('index', );
+});
