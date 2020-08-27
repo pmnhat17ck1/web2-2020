@@ -1,144 +1,138 @@
 <%- include('header-logged',{ title: 'Chuyển tiền trong bank'}) -%>
 
- <% if (errors!=null ) { %>
+    <% if (errors!=null ) { %>
 
-                        <div class="alert alert-<%= errors == 'Chuyển tiền thành công' ?  'success': 'danger'  %> fade show" role="alert" id="snackbar">
-                            <%=errors%>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <%} else { %>
-
-                            <% } %>
-        <!-- DataTales Example -->
-        <form method="POST">
-        <div class="card shadow mb-4">
-            <div class="card-header py-3" style="background-color: #A1CC7F;box-shadow: 0px 0px 4px #86BF5C;">
-                    <h6 class="m-0 font-weight-bold text-white">TÀI KHOẢN TRÍCH TIỀN</h6>
-            </div>
-            <div class="form-label-group ">
-                <div class="row ">
-                    <div class="col-sm-12 col-md-6 col-lg-6 py-4">
-                        <p>Số tài khoản trích tiền</p>
-                    </div>
-                    <div class="col-sm-12 col-md-6 col-lg-6 py-4">
-                         <select class="form-control " id="so_tktrichtien" name="numberacount_send" style="width: 250px;
-                            margin-left: 25px;">
-                           <% if (list!= null) {
-                                list.forEach(item => {%>
-                                <option><%= item.acountnumber %></option>
-                                <%});} %>
-                          </select>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="card-header py-3"style="background-color: #A1CC7F;box-shadow: 0px 0px 4px #86BF5C;">
-                <h6 class="m-0 font-weight-bold text-white">TÀI KHOẢN THỤ HƯỞNG</h6>
-            </div>
-            
-            <div class="form-label-group">
-                <div class="row ">
-                    <div class="col-sm-12 col-md-6 col-lg-6 py-4">
-                        <p>Nhập số tài khoản thụ hưởng</p>
-                    </div>
-                    <div class="col-sm-12 col-md-6 col-lg-6 py-4">
-                        <input type="text" id="so_tk" class="form-control huy1"  name="numberacount_receive" placeholder="" required
-                        autofocus>
-                    </div>
-                </div>
-
-                <div class="row ">
-                    <div class="col-sm-12 col-md-6 col-lg-6 py-4">
-                        <p>Nhập tên ngân hàng thụ hưởng</p>
-                    </div>
-                    <div class="col-sm-12 col-md-6 col-lg-6 py-4">
-                        <input type="text" id="so_tk" class="form-control huy2"  name="destinationbank" placeholder="" required
-                        autofocus>
-                    </div>
-                </div>
-               
-            </div>
-
-            <div class="card-header py-3"style="background-color: #A1CC7F;box-shadow: 0px 0px 4px #86BF5C;">
-                <h6 class="m-0 font-weight-bold text-white">THÔNG TIN CHUYỂN KHOẢN</h6>
-            </div>
-            <div class="form-label-group ">
-                <div class="row ">
-                    <div class="col-sm-12 col-md-6 col-lg-6 py-4">
-                        <p>Số tiền</p>
-                    </div>
-                    <div class="col-sm-12 col-md-6 col-lg-6 py-4">
-                        <input type="number" id="so_tk" class="form-control huy3"  name="amount" placeholder="" required
-                        autofocus>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class="col-sm-12 col-md-6 col-lg-6 py-4">
-                        <p>Phí giao dịch</p>
-                    </div>
-                    <div class="col-sm-12 col-md-6 col-lg-6 py-4">
-                        <input type="label"  id="so_tk" class="form-control" name="phi_giao_dich" value="10000" disabled placeholder="" >
-                    </div>
-                </div>
-                
-                <div class="row ">
-                    <div class="col-sm-12 col-md-6 col-lg-6 py-4">
-                        <p>Nội dung giao dịch</p>
-                    </div>
-                    <div class="col-sm-12 col-md-6 col-lg-6 py-4">
-                        <textarea class="form-control" id="nd_gd" style="width: 400px;height:200px;margin-left: 25px;"name="note" ></textarea>
-                        
-                    </div>
-                </div>
-                
-            </div>
-
-            <div class="card-header py-3"style="background-color: #A1CC7F;box-shadow: 0px 0px 4px #86BF5C;">
-                <h6 class="m-0 font-weight-bold text-white">THỜI GIAN CHUYỂN</h6>
-            </div>
-            <div class="form-label-group ">
-                <div class="row ">
-                    <div class="col-sm-12 col-md-12 col-lg-12 py-4">
-                      <p>    Chuyển khoản ngay</p>
-                    </div>
-                   
-                </div>
-              
-            </div>
-
-            <div class="card-header py-3"style="background-color: #A1CC7F;box-shadow: 0px 0px 4px #86BF5C;">
-                <h6 class="m-0 font-weight-bold text-white">PHƯƠNG PHÁP XÁC THỰC</h6>
-            </div>
-            <div class="form-label-group ">
-                <!-- <div class="row ">
-                    <div class="col-sm-12 col-md-6 col-lg-6 py-4">
-                        <p>Chọn phương thức xác thực</p>
-                    </div>
-                    <div class="col-sm-12 col-md-6 col-lg-6 py-4">
-                        <select class="form-control " id="xacthuc" style="width: 250px;
-                        margin-left: 25px;">
-                           
-                            <option>otp</option>
-                            <option>email</option>
-                           
-                          </select>
-                    </div>
-                </div> -->
-          
-                
-            </div>
-            <div class="btn2">
-                <button type="submit" class="btn btn-success btn-sm">Đồng ý</button>
-                <button type="button" id ="btnhuy"class="btn btn-secondary btn-sm">Hủy</button>
-            </div>   
-           
-            
+        <div class="alert alert-<%= errors == 'Chuyển tiền thành công' ?  'success': 'danger'  %> fade show" role="alert" id="snackbar">
+            <%=errors%>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
         </div>
-         </form>
-          
 
-    <%- include('footer-logged'); -%>
+        <%} else { %>
 
+            <% } %>
+                <!-- DataTales Example -->
+                <form method="POST">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3" style="background-color: #A1CC7F;box-shadow: 0px 0px 4px #86BF5C;">
+                            <h6 class="m-0 font-weight-bold text-white">TÀI KHOẢN TRÍCH TIỀN</h6>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <p>Số tài khoản trích tiền <span class="batbuoc">(*)</span></p>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <select class="form-control " id="so_tktrichtien" name="numberacount_send" style="width: 250px;margin-left: 25px;">
+                                    <option><%= acount ? acount.acountnumber : '' %></option>
+                                </select>
+                            </div>
+                        </div>
+
+
+
+                        <div class="card-header py-3" style="background-color: #A1CC7F;box-shadow: 0px 0px 4px #86BF5C;">
+                            <h6 class="m-0 font-weight-bold text-white">TÀI KHOẢN THỤ HƯỞNG</h6>
+                        </div>
+
+
+                        <div class="form-row ">
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <p>Nhập số tài khoản thụ hưởng <span class="batbuoc">(*)</span></p>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <input type="text" id="so_tk" class="form-control huy1" name="numberacount_receive" placeholder="" required autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-row ">
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <p>Nhập tên ngân hàng thụ hưởng <span class="batbuoc">(*)</span></p>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <input type="text" id="so_tk" class="form-control huy2" name="destinationbank" placeholder="" required autofocus>
+                            </div>
+                        </div>
+
+
+
+                        <div class="card-header py-3" style="background-color: #A1CC7F;box-shadow: 0px 0px 4px #86BF5C;">
+                            <h6 class="m-0 font-weight-bold text-white">THÔNG TIN CHUYỂN KHOẢN</h6>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <p>Số dư </p>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <input type="text" id="so_tk" class="form-control money" disabled value="<%=  acount? acount.balance : 00,00%>" required autofocus />
+                            </div>
+                        </div>
+
+                        <div class="form-row ">
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <p>Số tiền chuyển <span class="batbuoc">(*)</span></p>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <input type="number" id="so_tk" class="form-control huy3" name="amount" placeholder="" required autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-row ">
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <p>Đơn vị tiền tệ</p>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <select class="form-control " style=" width: 250px;margin-left: 25px;" id="currency" name="currency" style="width: 210px;margin-left: 25px;">
+                                <option>VND</option>
+                                <option>USD</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="form-row ">
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <p>Phí giao dịch</p>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <input type="label" id="so_tk" class="form-control money" name="phi_giao_dich" value="10000" disabled placeholder="">
+                            </div>
+                        </div>
+
+                        <div class="form-row ">
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <p>Nội dung giao dịch <span class="batbuoc">(*)</span></p>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <textarea class="form-control" id="nd_gd" style="width: 400px;height:200px;margin-left: 25px;" name="note"></textarea>
+                            </div>
+                        </div>
+                        <div class="card-header py-3" style="background-color: #A1CC7F;box-shadow: 0px 0px 4px #86BF5C;">
+                            <h6 class="m-0 font-weight-bold text-white">PHƯƠNG PHÁP XÁC THỰC</h6>
+                        </div>
+
+                        <div class="form-row ">
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+                                <p>Phương thức xác thực </p>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 py-4">
+
+                                <select class="custom-select" name="otp_email" style="width: 250px; margin-left: 25px;">
+                                    <option value="OTP">OTP</option>
+                                    <option value="EMAIL">EMAIL</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="btn2">
+                            <button type="submit" class="btn btn-success btn-sm">Đồng ý</button>
+                            <button type="button" id="btnhuy" class="btn btn-secondary btn-sm">Hủy</button>
+                        </div>
+
+
+                    </div>
+
+                </form>
+
+
+                <%- include('footer-logged'); -%>
