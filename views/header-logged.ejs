@@ -13,7 +13,7 @@
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
-  
+
     <link rel="stylesheet" href="/css/style5.css">
     <link href="/css/sb-admin-2.css" rel="stylesheet">
 
@@ -63,133 +63,140 @@
                             </a>
                         </div>
                     </div>
-                <%} else { %>
-                    
-                <%}%>
-                <% } else { %>
-                    <div class="container-fluid">
-                        <div class="row">
-                            <a href="/verify" id="header_verify">
-                                <div style="margin-top: 5px;">
-                                        <h5>Bạn cần phải xác thực tài khoản để sử dụng dịch vụ! </h5>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <% } %>
+                    <%} else { %>
 
-                        <% } %>
-                            <div class="wrapper">
-                                <!-- Sidebar Holder -->
-                                <nav id="sidebar">
-                                    <div class="sidebar-header">
-                                        <a href="/home/accountmanagement/profile">
-                                            <center id="sidebar-logo">
-                                                <h3 style="color: #2C3E50;">HourseBank</h3>
-                                                <img src="/img/team-liquid-1.svg" style="width: 150px; padding-bottom: 20px;" alt="LiquidBank">
-
-
-                                                <h4 style="color: #34495E;">Cá nhân</h4>
-                                            </center>
+                        <%}%>
+                            <% } else { %>
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <a href="/verify" id="header_verify">
+                                            <div style="margin-top: 5px;">
+                                                <h5>Bạn cần phải xác thực tài khoản để sử dụng dịch vụ! </h5>
+                                            </div>
                                         </a>
                                     </div>
+                                </div>
 
-                                    <ul class="list-unstyled components">
+                                <% } %>
 
-
-                                        <li id="menu1">
-                                            <a id="1" href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Quản lý tài khoản</a>
-                                            <ul class="collapse list-unstyled " id="pageSubmenu">
-                                                <li id="item1">
-                                                    <a href="/home/accountmanagement/profile">Thông tin tài khoản</a>
-                                                </li>
-                                                <li id="item2">
-                                                    <a href="/home/accountmanagement/transaction-history">Liệt kê giao dịch</a>
-                                                </li>
-
-                                            </ul>
-                                        </li>
-                                        <li id="menu2">
-                                            
-                                            <a href=" <%= verify ? (verify.status == true ?'#pageSubmenu1' : '' ): '' %> " data-toggle="collapse" aria-expanded="false"  class="dropdown-toggle" >Chuyển tiền</a>
-                                            <ul class="collapse list-unstyled " id="pageSubmenu1">
-                                                <li id="item3">
-                                                    <a href="/home/tranfer/in-the-bank">Chuyển tiền trong Bank</a>
-                                                </li>
-                                                <li id="item4">
-                                                    <a href="#">Chuyển tiền ngoài Bank</a>
-                                                </li>
-
-                                            </ul>
-                                        </li>
-                                        <li id="menu3">
-
-                                            <a href="<%= verify ? (verify.status == true ?'#pageSubmenu2' : '' ): '' %>  " data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Tiền gửi</a>
-                                            <ul class="collapse list-unstyled " id="pageSubmenu2">
-                                                <!-- <li id="item5">
-                                                    <a href="/home/saving/list-saving">Danh sách tài khoản tiết kiệm</a>
-
-                                                </li> -->
-                                                <li id="item5">
-                                                    <a href="<%=  (verify == null ?  ''  : '/home/saving/open-saving' )%> ">Mở tài khoản tiết kiệm</a>
-                                                </li>
-
-                                                <li id="item6">
-                                                    <a href="/home/saving/send-money">Gửi tiền</a>
-                                                </li>
+                                    <% } %>
+                                        <div class="wrapper">
+                                            <!-- Sidebar Holder -->
+                                            <nav id="sidebar">
+                                                <div class="sidebar-header">
+                                                    <a href="/home/accountmanagement/profile">
+                                                        <center id="sidebar-logo">
+                                                            <h3 style="color: #2C3E50;">HourseBank</h3>
+                                                            <img src="/img/team-liquid-1.svg" style="width: 150px; padding-bottom: 20px;" alt="LiquidBank">
 
 
-                                            </ul>
-                                        </li>
+                                                            <h4 style="color: #34495E;">Cá nhân</h4>
+                                                        </center>
+                                                    </a>
+                                                </div>
 
-                                    </ul>
+                                                <ul class="list-unstyled components">
 
 
-                                </nav>
+                                                    <li id="menu1">
+                                                        <a id="1" href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Quản lý tài khoản</a>
+                                                        <ul class="collapse list-unstyled " id="pageSubmenu">
+                                                            <li id="item1">
+                                                                <a href="/home/accountmanagement/profile">Thông tin tài khoản</a>
+                                                            </li>
+                                                            <li id="item2">
+                                                                <a href="/home/accountmanagement/transaction-history">Liệt kê giao dịch</a>
+                                                            </li>
 
-                                <!-- Page Content Holder -->
-                                <div id="content">
+                                                        </ul>
+                                                    </li>
+                                                    <li id="menu2">
 
-                                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                                        <div class="container-fluid">
+                                                        <a href=" <%= verify ? (verify.status == true ?'#pageSubmenu1' : '' ): '' %> " data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Chuyển tiền</a>
+                                                        <ul class="collapse list-unstyled " id="pageSubmenu1">
+                                                            <li id="item3">
+                                                                <a href="/home/tranfer/in-the-bank">Chuyển tiền trong Bank</a>
+                                                            </li>
+                                                            <li id="item4">
+                                                                <a href="#">Chuyển tiền ngoài Bank</a>
+                                                            </li>
 
-                                            <button type="button" id="sidebarCollapse" class="navbar-btn d-inline-block d-lg-none">
+                                                        </ul>
+                                                    </li>
+                                                    <li id="menu3">
+
+                                                        <a href="<%= verify ? (verify.status == true ?'#pageSubmenu2' : '' ): '' %>  " data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Tiền gửi</a>
+                                                        <ul class="collapse list-unstyled " id="pageSubmenu2">
+                                                            <li id="item7">
+                                                                <a href="/home/saving/list-saving">Danh sách Kết quả tiết kiệm</a>
+
+                                                            </li>
+                                                            <li id="item5">
+                                                                <a href="<%=  (verify == null ?  ''  : '/home/saving/open-saving' )%> ">Mở tài khoản tiết kiệm</a>
+                                                            </li>
+
+                                                            <li id="item6">
+                                                                <a href="/home/saving/send-money">Gửi tiền</a>
+                                                            </li>
+
+
+                                                        </ul>
+                                                    </li>
+
+                                                </ul>
+                                                <div class="copyright">
+                                                    <div class="copyright1">
+                                                        <span>Copyright © 2020<br>Ngân hàng HourseBank - HB<br>Quận 5, TP HCM.
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+
+                                            </nav>
+
+
+                                            <!-- Page Content Holder -->
+                                            <div id="content">
+
+                                                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                                                    <div class="container-fluid">
+
+                                                        <button type="button" id="sidebarCollapse" class="navbar-btn d-inline-block d-lg-none">
                       
                         <span></span>
                         <span></span>
                         <span></span>
                     </button>
 
-                                            <h5 style="color:#28A745;position:relative;top:5px;font-size:2vw;padding-left: 15px;">Xin Chào
-                                                <%=currentUser.displayname%>!</h5>
-                                            <button class="btn navbar-btn d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                                        <h5 style="color:#28A745;position:relative;top:5px;font-size:2vw;padding-left: 15px;">Xin Chào
+                                                            <%=currentUser.displayname%>!</h5>
+                                                        <button class="btn navbar-btn d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify"></i>
                     </button>
 
-                                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                                                <ul class="nav navbar-nav ml-auto">
+                                                            <ul class="nav navbar-nav ml-auto">
 
-                                                    <li class="nav-item active">
-                                                        <a href="/" style="color: #636464;"><i class="fa fa-home fa-fw fa-lg"></i>Trang chủ&nbsp;</a>
-                                                    </li>
+                                                                <li class="nav-item active">
+                                                                    <a href="/" style="color: #636464;"><i class="fa fa-home fa-fw fa-lg"></i>Trang chủ&nbsp;</a>
+                                                                </li>
 
-                                                    <li class="nav-item">
-                                                        <a href="/help" style="color: #636464;"><i class="fa fa-question-circle fa-fw fa-lg"></i>Trợ
+                                                                <li class="nav-item">
+                                                                    <a href="/help" style="color: #636464;"><i class="fa fa-question-circle fa-fw fa-lg"></i>Trợ
                                     giúp&nbsp;</a>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                        <a href="/logout" style="color: #636464;"><i class="fa fa-sign-out fa-fw fa-lg"></i>Đăng xuất</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </nav>
-                                    <nav aria-label="breadcrumb">
-                                        <ol class="breadcrumb" style="padding-left: 25px;background: linear-gradient(15deg, #D5E9C6  0%, #ffffff 100%);;box-shadow: 0px 0px 4px #86BF5C;color:#28A745">
-                                            <li class="breadcrumb-item">Trang chủ</li>
-                                            <li class="breadcrumb-item" id="br"></li>
-                                            <li class="breadcrumb-item active" id="br1"></li>
-                                        </ol>
-                                    </nav>
+                                                                </li>
+                                                                <li class="nav-item">
+                                                                    <a href="/logout" style="color: #636464;"><i class="fa fa-sign-out fa-fw fa-lg"></i>Đăng xuất</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </nav>
+                                                <nav aria-label="breadcrumb">
+                                                    <ol class="breadcrumb" style="padding-left: 25px;background: linear-gradient(15deg, #D5E9C6  0%, #ffffff 100%);;box-shadow: 0px 0px 4px #86BF5C;color:#28A745">
+                                                        <li class="breadcrumb-item">Trang chủ</li>
+                                                        <li class="breadcrumb-item" id="br"></li>
+                                                        <li class="breadcrumb-item active" id="br1"></li>
+                                                    </ol>
+                                                </nav>

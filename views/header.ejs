@@ -46,15 +46,20 @@
                     
                 <%}%>
                 <% } else { %>
-                    <div class="container-fluid">
-                        <div class="row">
-                            <a href="/verify" id="header_verify">
-                                <div style="margin-top: 5px;">
-                                        <h5>Bạn cần phải xác thực tài khoản để sử dụng dịch vụ! </h5>
-                                </div>
-                            </a>
+                    <% if(title =='Xác thực tài khoản'){ %>
+                   
+                    <%} else { %>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <a href="/verify" id="header_verify">
+                                    <div style="margin-top: 5px;">
+                                            <h5>Bạn cần phải xác thực tài khoản để sử dụng dịch vụ! </h5>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                    </div>
+                    <%}%>
+                   
                     
                     <% } %>
 
@@ -75,8 +80,8 @@
                                                 </a>
                                             </div>
                                             <div class="col-sm-4" id="nav_link1">
-                                                <a class="nav-link" href="#">
-                                                    <center>Giới thiệu</center>
+                                                <a class="nav-link" href="/lien-he">
+                                                    <center>Liên hệ</center>
                                                 </a>
                                             </div>
                                             <!-- <div class="col-sm-3" id="nav_link1">
@@ -298,7 +303,7 @@
                                                             <label for="cmnd">Số giấy tờ</label>
                                                         </div>
 
-                                                       
+                                                     
                                                         <div class="form-label-group">
                                                             <input type="date" class="form-control " id="daterange" name="daterange" placeholder="Ngày cấp" required>
                                                             <label for="daterange">Ngày cấp</label>
