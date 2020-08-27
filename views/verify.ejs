@@ -24,7 +24,7 @@
 
                             <% } %>
                                 <div class="d-flex flex-column text-center">
-                                    <form method="POST" enctype="multipart/form-data" >
+                                    <form method="POST" enctype="multipart/form-data">
                                         <div class="form-group" style="margin-bottom: 20px; ;-webkit-box-shadow: 0 8px 6px -6px #93C66E;-moz-box-shadow: 0 8px 6px -6px #93C66E;box-shadow: 0 8px 6px -6px #93C66E; text-align: left;">
                                             <input type="text" class="form-control" id="displayname" name="displayname" disabled placeholder="<%= currentUser ? currentUser.displayname : 'Khách hàng' %>">
                                         </div>
@@ -39,36 +39,92 @@
                                             <input type="text" class="form-control" id="papers" name="papers" placeholder="Số giấy tờ">
                                         </div>
                                         <div class="form-group" style="margin-bottom: 20px; ;-webkit-box-shadow: 0 8px 6px -6px #93C66E;-moz-box-shadow: 0 8px 6px -6px #93C66E;box-shadow: 0 8px 6px -6px #93C66E; text-align: left;">
-                                            <input type="file" id="avatar" name="avatar" multiple>
-                                            <div class="gallery" style="width: auto;height: auto;"></div>
+                                            <!-- <input type="file" id="avatar" name="avatar" > -->
+                                            <div class="form-row">
+                                                <div class="col-md-6">
+                                                    <div class="image-upload-wrap">
+                                                        <input class="file-upload-input" type='file' id="avatar" name="avatar" />
+                                                        <div class="drag-text">
+                                                            <h3>Mặt trước</h3>
+                                                        </div>
+                                                    </div>
+                                                    <div class="file-upload-content">
+                                                        <img class="file-upload-image" src="#" alt="your image" style="width: 200px;height: 200px;" />
+                                                        <div class="image-title-wrap">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="image-upload-wrap1">
+                                                        <input class="file-upload-input1" type='file' id="avatar1" name="avatar" />
+                                                        <div class="drag-text1">
+                                                            <h3>Mặt sau</h3>
+                                                        </div>
+                                                    </div>
+                                                    <div class="file-upload-content1">
+                                                        <img class="file-upload-image1" src="#" alt="your image" style="width: 200px;height: 200px;" />
+                                                        <div class="image-title-wrap1">
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
                                             <script>
-                                                                                                        $(function() {
-                                                                // Multiple images preview in browser
-                                                                var imagesPreview = function(input, placeToInsertImagePreview) {
+                                                function readURL(input) {
+                                                    if (input.files && input.files[0]) {
 
-                                                                    if (input.files) {
-                                                                        var filesAmount = input.files.length;
+                                                        var reader = new FileReader();
 
-                                                                        for (i = 0; i < filesAmount; i++) {
-                                                                            var reader = new FileReader();
+                                                        reader.onload = function(e) {
+                                                            $('.image-upload-wrap').hide();
 
-                                                                            reader.onload = function(event) {
-                                                                                $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(placeToInsertImagePreview).attr('style','width: 200px;height: 200px;');
-                                                                            }
+                                                            $('.file-upload-image').attr('src', e.target.result);
+                                                            $('.file-upload-content').show();
 
-                                                                            reader.readAsDataURL(input.files[i]);
-                                                                        }
-                                                                    }
+                                                            $('.image-title').html(input.files[0]);
+                                                        };
 
-                                                                };
+                                                        reader.readAsDataURL(input.files[0]);
 
-                                                                $('#avatar').on('change', function() {
-                                                                    imagesPreview(this, 'div.gallery');
-                                                                });
-                                                            });
+                                                    } else {
+
+                                                    }
+                                                }
+
+                                                function readURL1(input) {
+                                                    if (input.files && input.files[0]) {
+
+                                                        var reader = new FileReader();
+
+                                                        reader.onload = function(e) {
+                                                            $('.image-upload-wrap1').hide();
+
+                                                            $('.file-upload-image1').attr('src', e.target.result);
+                                                            $('.file-upload-content1').show();
+
+                                                            $('.image-title1').html(input.files[0]);
+                                                        };
+
+                                                        reader.readAsDataURL(input.files[0]);
+
+                                                    } else {
+
+                                                    }
+                                                }
+
+
+                                                $("#avatar").change(function() {
+                                                    readURL(this);
+                                                });
+                                                $("#avatar1").change(function() {
+                                                    readURL1(this);
+                                                });
                                             </script>
                                         </div>
-
+                                        <p style="color:red">*Vui lòng chọn hình ảnh mặt trước rồi tới mặt sau!!!</p>
                                         <div class="btn_boxshadow btn-round">
                                             <input type="submit" class="btn btn-block btn-round" value="Send">
                                         </div>
