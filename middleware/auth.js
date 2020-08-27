@@ -16,9 +16,12 @@ module.exports = asyncHandler(async function auth(req, res, next) {
     }
     req.currentUser = user.user;
     res.locals.currentUser = user.user;
-
+    res.locals.verify = null;
     const verify = await verifypaper(req, res);
-
+    if(!verify){
+        return next();
+    }
+    console.log({verify : verify});
     res.locals.verify = verify;
     next();
 });
